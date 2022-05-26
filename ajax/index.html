@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Form Demo</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <div class="container form-body">
+          <div>
+            <h1 class="text-center">Form Demo</h1>
+            <p class="text-warning">Fields with * is mandatory.</p>
+          </div>
+          <form
+            class="regform"
+            action="action.php"
+            method="post"
+            onSubmit="return validate()"
+            enctype="multipart/form-data"
+          >
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Student Name&nbsp;<sup>*</sup></label
+              >
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="sname"
+                  name="sname"
+                  placeholder="Enter student name."
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Father's Name&nbsp;<sup>*</sup></label
+              >
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  placeholder="Enter father's name."
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Mother's Name&nbsp;<sup>*</sup></label
+              >
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="mname"
+                  name="mname"
+                  placeholder="Enter mother's name."
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Date of Birth&nbsp;<sup>*</sup></label
+              >
+              <div class="col-sm-8">
+                <input class="form-control" id="dob" type="date" name="dob" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Mobile Number&nbsp;<sup>*</sup></label
+              >
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  type="tel"
+                  id="mob"
+                  name="mob"
+                  placeholder="Enter mobile number."
+                  maxlength="10"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Email id&nbsp;<sup>*</sup></label
+              >
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter email id."
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Address&nbsp;<sup>*</sup></label
+              >
+              <div class="col-sm-8">
+                <textarea
+                  class="form-control"
+                  id="addrs"
+                  name="addrs"
+                  placeholder="Enter address."
+                  maxlength="100"
+                ></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Gender&nbsp;<sup>*</sup></label
+              >
+              <div class="col-sm-8">
+                <select class="form-select" id="gender" name="gender">
+                  <option value="" selected>Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Others">others</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Select Course&nbsp;<sup>*</sup></label
+              >
+              <div class="col-sm-8">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="course"
+                    name="course"
+                    value="B. Tech"
+                    onClick="check(this)"
+                  /><label class="form-check-label">B. Tech</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="course"
+                    name="course"
+                    value="BCA"
+                    onClick="check(this)"
+                  /><label class="form-check-label">BCA</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="course"
+                    value="BBA"
+                    name="course"
+                    onClick="check(this)"
+                  /><label class="form-check-label">BBA</label>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Select Hobbies&nbsp;</label
+              >
+              <div class="col-sm-8">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="hmusic"
+                    value="Music"
+                    name="hMusic"
+                    onClick="setData()"
+                  /><label class="form-check-label">Music</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="htravell"
+                    value="travelling"
+                    name="htravell"
+                    onClick="setData()"
+                  /><label class="form-check-label">Travelling</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="hothers"
+                    value="Others"
+                    name="hothers"
+                    onClick="setData()"
+                  /><label class="form-check-label">Others</label>
+                </div>
+                <input type="hidden" id="hobbyhdn" name="hobbyhdn" value="" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="form-label col-sm-4 col-form-label"
+                >Upload Photo&nbsp;<sup>*</sup></label
+              >
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  type="file"
+                  id="photo"
+                  name="photo"
+                />
+              </div>
+            </div>
+            <div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="confirm"
+                  name="confirm"
+                /><label class="form-check-label"
+                  >I confirm that all the above mentioned details are correct
+                  .</label
+                >
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="btn-group" role="group">
+                <button class="btn btn-secondary m-2 form-btn" type="reset">
+                  Reset</button
+                ><button class="btn btn-success m-2 form-btn" type="submit">
+                  Save
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let course = "";
+
+      function validate() {
+        if (document.getElementById("sname").value == "") {
+          alert("Please enter first name:");
+          document.getElementById("sname").focus();
+          return false;
+        }
+        if (document.getElementById("fname").value == "") {
+          alert("Please enter father's name:");
+          document.getElementById("fname").focus();
+          return false;
+        }
+        if (document.getElementById("mname").value == "") {
+          alert("Please mother's name:");
+          document.getElementById("mname").focus();
+          return false;
+        }
+        if (document.getElementById("dob").value == "") {
+          alert("Please enter date of birth:");
+          document.getElementById("dob").focus();
+          return false;
+        }
+        if (document.getElementById("mob").value == "") {
+          alert("Please enter mobile number");
+          document.getElementById("mob").focus();
+          return false;
+        } else {
+          mob = document.getElementById("mob").value;
+          if (isNaN(mob)) {
+            alert("The mobile number must be number");
+            document.getElementById("mob").focus();
+            return false;
+          }
+          if (mob.length < 10) {
+            alert("The mobile number must be 10 digits.");
+            document.getElementById("mob").focus();
+            return false;
+          }
+          if (Number(mob.substr(0, 1)) < 6) {
+            alert("The mobile number must start with 6 onward.");
+            document.getElementById("mob").focus();
+            return false;
+          }
+        }
+
+        if (document.getElementById("email").value == "") {
+          alert("Please enter Email id:");
+          document.getElementById("email").focus();
+          return false;
+        } else {
+          email = document.getElementById("email").value;
+          atPos = email.indexOf("@");
+          dotPos = email.indexOf(".");
+          if (atPos == -1) {
+            alert("The @ sign is missing in email.");
+            document.getElementById("email").focus();
+            return false;
+          }
+          if (dotPos == -1) {
+            alert("Domain is missing in email.");
+            document.getElementById("email").focus();
+            return false;
+          }
+          if (atPos == 0 || dotPos == 0) {
+            alert("The @ or . sign must not be at first pos.");
+            document.getElementById("email").focus();
+            return false;
+          }
+          if (email.length - email.lastIndexOf(".") < 3) {
+            alert("Domain is invalid in Email.");
+            document.getElementById("email").focus();
+            return false;
+          }
+          if (atPos != email.lastIndexOf("@")) {
+            alert("Email must have only one @ sign.");
+            document.getElementById("email").focus();
+            return false;
+          }
+        }
+
+        if (document.getElementById("addrs").value == "") {
+          alert("Please enter address:");
+          document.getElementById("addrs").focus();
+          return false;
+        }
+        if (document.getElementById("gender").value == "") {
+          alert("Please select gender.");
+          document.getElementById("gender").focus();
+          return false;
+        }
+
+        if (course == "") {
+          alert("Please select any course:");
+          document.getElementById("course").focus();
+          return false;
+        }
+
+        if (document.getElementById("photo").value == "") {
+          alert("Please select any photo:");
+          document.getElementById("photo").focus();
+          return false;
+        }
+        if (!document.getElementById("confirm").checked) {
+          alert("Please confirm mentoined details are correct");
+          document.getElementById("confirm").focus();
+          return false;
+        }
+      }
+
+      function check(t) {
+        //alert(t.value);
+        course = t.value;
+      }
+
+      function setData() {
+        document.getElementById("hobbyhdn").value = "";
+
+        if (document.getElementById("hmusic").checked)
+          document.getElementById("hobbyhdn").value =
+            document.getElementById("hmusic").value;
+
+        if (document.getElementById("htravell").checked)
+          document.getElementById("hobbyhdn").value =
+            document.getElementById("hobbyhdn").value +
+            ", " +
+            document.getElementById("htravell").value;
+
+        if (document.getElementById("hothers").checked)
+          document.getElementById("hobbyhdn").value =
+            document.getElementById("hobbyhdn").value +
+            ", " +
+            document.getElementById("hothers").value;
+
+        if (document.getElementById("hobbyhdn").value.substr(0, 1) == ",") {
+          document.getElementById("hobbyhdn").value = document
+            .getElementById("hobbyhdn")
+            .value.substr(2);
+        }
+      }
+    </script>
+  </body>
+</html>
